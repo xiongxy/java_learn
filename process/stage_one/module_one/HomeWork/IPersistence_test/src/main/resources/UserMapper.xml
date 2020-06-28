@@ -1,0 +1,8 @@
+<mapper namespace="user">
+    <select id="selectList" resultType="org.sbear.pojo.User">
+        select * from user
+    </select>
+    <select id="selectOne" resultType="org.sbear.pojo.User" parameterType="org.sbear.pojo.User">
+        select * from user where id = #{id} and username = #{username}
+    </select>
+</mapper>
