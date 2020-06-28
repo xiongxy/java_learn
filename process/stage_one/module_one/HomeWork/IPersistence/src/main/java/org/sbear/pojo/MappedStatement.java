@@ -1,5 +1,7 @@
 package org.sbear.pojo;
 
+import org.sbear.enums.SqlCommandType;
+
 /**
  * @author xxyWi
  */
@@ -9,6 +11,16 @@ public class MappedStatement {
     private String resultType;
     private String parameterType;
     private String sql;
+    private SqlCommandType type;
+
+
+    public SqlCommandType getType() {
+        return type;
+    }
+
+    public void setType(SqlCommandType type) {
+        this.type = type;
+    }
 
     public String getId() {
         return id;

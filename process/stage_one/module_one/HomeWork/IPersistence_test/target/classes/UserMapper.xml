@@ -1,8 +1,20 @@
-<mapper namespace="user">
-    <select id="selectList" resultType="org.sbear.pojo.User">
+<mapper namespace="org.sbear.dao.IUserDao">
+    <select id="selectAllUser" resultType="org.sbear.pojo.User">
         select * from user
     </select>
-    <select id="selectOne" resultType="org.sbear.pojo.User" parameterType="org.sbear.pojo.User">
-        select * from user where id = #{id} and username = #{username}
+    <select id="findByCondition" resultType="org.sbear.pojo.User" parameterType="org.sbear.pojo.User">
+        select * from user where id = #{id}
     </select>
+    <insert id="insertUser"  resultType="java.lang.Integer" parameterType="org.sbear.pojo.User" >
+        insert into user (username, password, birthday)
+        values (#{username},'123123','2019-12-18');
+    </insert>
+
+    <update id="updateUser"  resultType="java.lang.Integer" parameterType="org.sbear.pojo.User" >
+        UPDATE user SET username = #{username} WHERE id=#{id}
+    </update>
+
+    <delete  id="deleteUser"  resultType="java.lang.Integer" parameterType="java.lang.Integer">
+        DELETE FROM user WHERE id = #{id}
+    </delete>
 </mapper>
