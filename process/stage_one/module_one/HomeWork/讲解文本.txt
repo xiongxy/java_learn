@@ -1,0 +1,69 @@
+
+电脑没有麦克风，下次去买一个，这次先用文字解说的方式吧。
+
+先演示下效果，基于user表，
+分别是查询单个，查询多个，新增，修改，删除 
+功能
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+分析下题目：
+在现有的代码基础上增加 ：新增、修改、删除功能
+并且是基于getMapper方式
+
+第一步：我们需要增加:新增、修改、删除的xml标签
+
+1. mybatis 使用 select、insert、update、delete 标签 我们也模仿使用这种方式
+
+2. 知道XML的解析是放在XMLConfigBuilder中，在XMLConfigBuidler中parseConfig方法。
+
+3. 在parseConfig 方法中又解析了mapper
+
+4. 在XMLMapperBuilder中，根据标签的name我们分辨出select、update、insert、delete
+
+6. 并且把标签转换成sqlCommandtype存储到了MappedStatement 类中
+
+5. 这里使用了mybatis里面的枚举
+
+第二步:知道基于getMapper的方式，代理后的所有接口都需要走invoke方法，所以我修改了invoke方法
+
+1. 在DefaultSqlSession中修改了getMapper中的JDK动态代理。
+
+2. 在实现select的功能时，其实是调用的本类的select方法，所以insert update delete 也是类似
+
+3. SqlSession接口 新增了insert update delete
+
+4. 根据之前听到的源码解析我们知道其实真正执行的是由执行器里面的handler执行的，在这个代码中我们没有handler所以就在Executor中执行。
+
+5. 然后我翻了mybatis的源码，发现在SimpleExecutor中的实现，只有doupdate一个，去实现insert update delete 操作 ，于是我也一样这样实现
+
+
+
