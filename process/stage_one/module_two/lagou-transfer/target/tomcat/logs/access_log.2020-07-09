@@ -1,0 +1,5 @@
+0:0:0:0:0:0:0:1 - - [09/Jul/2020:20:01:15 +0800] "GET / HTTP/1.1" 200 4512 http-bio-8080-exec-1 26
+0:0:0:0:0:0:0:1 - - [09/Jul/2020:20:01:15 +0800] "GET /js/jquery-3.4.1.min.js HTTP/1.1" 200 88145 http-bio-8080-exec-3 3
+0:0:0:0:0:0:0:1 - - [09/Jul/2020:20:01:15 +0800] "GET /favicon.ico HTTP/1.1" 404 973 http-bio-8080-exec-4 2
+0:0:0:0:0:0:0:1 - - [09/Jul/2020:20:01:19 +0800] "POST /transferServlet HTTP/1.1" 500 3634 http-bio-8080-exec-5 86
+0:0:0:0:0:0:0:1 - - [09/Jul/2020:21:26:47 +0800] "POST /transferServlet HTTP/1.1" 500 3634 http-bio-8080-exec-1 197
