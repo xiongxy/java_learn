@@ -29,10 +29,4 @@ public class SecurityController {
         System.out.println(username + "验证通过");
         return "Welcome:[" + username + "]into: /security/demo03";
     }
-
-    @CustomRequestMapping("/demo4")
-    public String demo4(String username) {
-        System.out.println(username + "验证通过");
-        return "Welcome:[" + username + "]into: /security/demo04";
-    }
 }
